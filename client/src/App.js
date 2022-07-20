@@ -1,28 +1,14 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import InitializeLink from "./components/Initialize-Link";
 
 function App() {
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("http://localhost:3001/api")
-      .then((res) => {
-        console.log(res);
-
-        return res.json();
-        })
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      });
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading..." : data.message}</p>
+        <InitializeLink></InitializeLink>
       </header>
     </div>
   );
